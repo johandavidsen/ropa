@@ -1,0 +1,15 @@
+.nav {
+  @apply flex items-center justify-between pl-4 pr-4 pb-2
+}
+
+.menu-item {
+  @apply pt-3 pb-0 pr-2 border-b border-white;
+}
+
+.menu-item:hover {
+  @apply border-black;
+}
+
+.menu-item:last-of-type {
+  @apply pr-0;
+}
