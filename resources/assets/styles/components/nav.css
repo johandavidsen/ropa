@@ -3,7 +3,7 @@
 }
 
 .menu-item {
-  @apply pt-3 pb-0 pr-2 border-b border-white;
+  @apply pr-2 border-b border-white;
 }
 
 .menu-item:hover {
