@@ -6,12 +6,12 @@
 
     <nav class="flex-1">
       @if (has_nav_menu('primary_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'flex justify-center', 'echo' => false ]) !!}
+        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'flex justify-center text-lg', 'echo' => false ]) !!}
       @endif
     </nav>
 
     <div class="flex-1 flex justify-end">
-      @include('forms/search')
+      {{--@include('forms/search')--}}
     </div>
   </div>
 </header>
