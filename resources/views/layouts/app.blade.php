@@ -5,7 +5,7 @@
 </main>
 
 @hasSection('sidebar')
-  <aside>
+  <aside class="my-10">
     @yield('sidebar')
   </aside>
 @endif

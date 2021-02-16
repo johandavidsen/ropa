@@ -1,8 +1,8 @@
 <header>
   <div class="nav p-4">
-    <a href="{{ home_url('/') }}" class="flex items-center text-lg font-pacifico flex-1">
-      {{ $siteName }}
-    </a>
+    <div class="flex items-center text-lg font-pacifico flex-1">
+      <a href="{{ home_url('/') }}">{{ $siteName }}</a>
+    </div>
 
     <nav class="flex-1">
       @if (has_nav_menu('primary_navigation'))
