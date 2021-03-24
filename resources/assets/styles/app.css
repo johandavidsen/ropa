@@ -6,6 +6,7 @@
 @import "tailwindcss/components";
 @import "components/nav.css";
 @import "components/widgets.css";
+@import "components/content-single.css";
 
 @import "tailwindcss/utilities";
 

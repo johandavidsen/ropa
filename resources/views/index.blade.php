@@ -12,9 +12,9 @@
   @endif
 
   @while(have_posts()) @php(the_post())
-    <div class="container sm:container py-5">
-      @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-    </div>
+  <div class="container">
+    @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+  </div>
   @endwhile
 
   {!! get_the_posts_navigation() !!}

@@ -17,6 +17,14 @@ if (! file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
 
 require $composer;
 
+/**
+ *
+ */
+if (! defined('ROPA_VERSION')) {
+    // Replace the version number of the theme on each release.
+    define('ROPA_VERSION', 'v0.1.0');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Register Sage Theme Files

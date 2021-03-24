@@ -4,6 +4,10 @@
   line-height: 1.7;
 }
 
+.ropa {
+  @apply w-full min-h-screen;
+}
+
 .h1 {
   @apply text-4xl;
 }
