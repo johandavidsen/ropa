@@ -1,5 +1,7 @@
 <?php
 
+use App\View\Blocks\PostWidget;
+
 /**
  * Blocks
  *
@@ -7,6 +9,11 @@
  *
  */
 
-use App\View\Blocks\LatestPosts;
+if (! function_exists('ropa_register_blocks')) {
 
-$latest_news = new LatestPosts();
+    function ropa_register_blocks()
+    {
+        new PostWidget();
+    }
+    add_action('init', 'ropa_register_blocks');
+}
