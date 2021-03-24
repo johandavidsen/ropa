@@ -13,7 +13,8 @@ if (! function_exists('ropa_register_blocks')) {
 
     function ropa_register_blocks()
     {
-        new PostWidget();
+        $postWidget = new PostWidget();
+        $postWidget->bootstrap();
     }
     add_action('init', 'ropa_register_blocks');
 }
