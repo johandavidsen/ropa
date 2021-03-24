@@ -2,9 +2,14 @@
   "name": "fjakkarin.com/ropa",
   "type": "wordpress-theme",
   "license": "MIT",
-  "description": "WordPress starter theme with a modern development workflow",
+  "description": "Rópa is the default theme for the webpage Fjakkarin.com.",
   "homepage": "https://fjakkarin.com/ropa",
   "authors": [
+    {
+      "name": "Jóhan H Dam-Davidsen",
+      "email": "johan.davidsen@fjakkarin.com",
+      "homepage": "https://fjakkarin.com"
+    },
     {
       "name": "Ben Word",
       "email": "ben@benword.com",
@@ -30,8 +35,7 @@
     "wordpress"
   ],
   "support": {
-    "issues": "https://github.com/johandavidsen/ropa/issues",
-    "forum": "https://discourse.roots.io/"
+    "issues": "https://github.com/johandavidsen/ropa/issues"
   },
   "autoload": {
     "psr-4": {
