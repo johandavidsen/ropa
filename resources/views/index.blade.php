@@ -12,12 +12,14 @@
   @endif
 
   @while(have_posts()) @php(the_post())
-    <div class="container sm:container py-5">
+    <div class="container">
       @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
     </div>
   @endwhile
 
-  {!! get_the_posts_navigation() !!}
+  <div class="container py-5">
+    {!! $pagination !!}
+  </div>
 
   @include('partials.sidebar')
 @endsection
