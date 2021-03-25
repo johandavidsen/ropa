@@ -2,6 +2,7 @@
 
 namespace App\View\Composers;
 
+use Illuminate\View\View;
 use Roots\Acorn\View\Composer;
 
 class App extends Composer
@@ -23,7 +24,11 @@ class App extends Composer
     public function with()
     {
         return [
-            'siteName' => $this->siteName(),
+            'siteName'      => $this->siteName(),
+            'siteTagline'   => $this->siteTagline(),
+            'siteUrl'       => $this->siteUrl(),
+            'showTitle'     => $this->showTitle(),
+            'showLogo'      => $this->showLogo()
         ];
     }
 
@@ -35,5 +40,37 @@ class App extends Composer
     public function siteName()
     {
         return get_bloginfo('name', 'display');
+    }
+
+    /**
+     *
+     */
+    public function siteTagline(): string
+    {
+        return get_bloginfo('description');
+    }
+
+    /**
+     * @return string|void
+     */
+    public function siteUrl(): string
+    {
+        return home_url('/');
+    }
+
+    /**
+     * @return bool
+     */
+    public function showTitle(): bool
+    {
+        return ( true === get_theme_mod('display_title_and_tagline', true) );
+    }
+
+    /**
+     * @return bool
+     */
+    public function showLogo(): bool
+    {
+        return has_custom_logo() && $this->showTitle();
     }
 }
