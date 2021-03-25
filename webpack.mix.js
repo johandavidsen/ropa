@@ -16,7 +16,7 @@ require('laravel-mix-copy-watched');
 
 mix
   .setPublicPath('./dist')
-  .browserSync('https://version2.fjakkarin.com.test/');
+  .browserSync('https://fjakkarin.com.test/');
 
 mix
   .postCss('resources/assets/styles/app.css', 'styles', [
@@ -39,7 +39,8 @@ mix
 
 mix
   .copyWatched('resources/assets/images/**', 'dist/images')
-  .copyWatched('resources/assets/fonts/**', 'dist/fonts');
+  .copyWatched('resources/assets/fonts/**', 'dist/fonts')
+    .copyWatched('resources/assets/webfonts/**', 'dist/webfonts');
 
 mix
   .options({ processCssUrls: false })

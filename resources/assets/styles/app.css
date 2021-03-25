@@ -8,6 +8,7 @@
 @import "components/widgets.css";
 
 @import "tailwindcss/utilities";
+@import "vendor/font-awesome.css";
 
 @layer base {
 

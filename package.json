@@ -53,6 +53,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
-    "@fontsource/pacifico": "^4.1.0"
+    "@fontsource/pacifico": "^4.1.0",
+    "@fortawesome/fontawesome-free": "^5.15.3"
   }
 }
