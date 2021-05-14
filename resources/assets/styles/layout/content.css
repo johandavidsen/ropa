@@ -31,5 +31,5 @@
 }
 
 .content {
-  height: calc(100vh - 255.8px);
+  min-height: calc(100vh - 255.8px);
 }

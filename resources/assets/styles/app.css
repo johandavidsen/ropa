@@ -9,6 +9,7 @@
 @import "components/content-single.css";
 
 @import "tailwindcss/utilities";
+@import "vendor/font-awesome.css";
 
 @layer base {
 
@@ -43,6 +44,4 @@
     a:hover {
         @apply border-black;
     }
-
 }
-
