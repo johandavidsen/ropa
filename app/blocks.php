@@ -11,6 +11,7 @@ use App\View\Blocks\PostWidget;
 
 if (! function_exists('ropa_register_blocks')) {
 
+
     function ropa_register_blocks()
     {
         $postWidget = new PostWidget();
