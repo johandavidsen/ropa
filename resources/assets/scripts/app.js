@@ -1,4 +1,4 @@
 /**
  * External Dependencies
  */
-
+import 'alpinejs'
