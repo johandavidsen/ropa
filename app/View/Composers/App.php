@@ -24,6 +24,7 @@ class App extends Composer
     {
         return [
             'siteName' => $this->siteName(),
+            'siteIcon' => $this->siteIcon()
         ];
     }
 
@@ -35,5 +36,13 @@ class App extends Composer
     public function siteName()
     {
         return get_bloginfo('name', 'display');
+    }
+
+    /**
+     * @return string
+     */
+    public function siteIcon(): string
+    {
+        return get_site_icon_url();
     }
 }
