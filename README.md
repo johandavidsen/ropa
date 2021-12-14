@@ -13,8 +13,8 @@
     <img alt="Packagist" src="https://img.shields.io/packagist/v/roots/sage.svg?style=flat-square" />
   </a>
 
-  <a href="https://circleci.com/gh/roots/sage">
-    <img alt="Build Status" src="https://img.shields.io/circleci/build/gh/roots/sage?style=flat-square" />
+  <a href="https://github.com/roots/sage/actions">
+    <img alt="Build Status" src="https://img.shields.io/github/workflow/status/roots/sage/Main?style=flat-square" />
   </a>
 
   <a href="https://twitter.com/rootswp">
@@ -29,7 +29,7 @@
 </p>
 
 <p align="center">
-  <a href="https://roots.io">Official Website</a> | <a href="https://roots.io/docs/sage/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
+  <a href="https://roots.io">Official Website</a> | <a href="https://docs.roots.io/sage/10.x/installation/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
 </p>
 
 ## Supporting
@@ -50,26 +50,23 @@ However, the amount of effort needed to maintain and develop new features and pr
 
 Sage is a productivity-driven WordPress starter theme with a modern development workflow.
 
-**The `master` branch currently tracks Sage 10 which is in active development. Looking for Sage 9? [See releases](https://github.com/roots/sage/releases).**
+**The `main` branch currently tracks Sage 10 which is in active development. Looking for Sage 9 or the latest Sage 10 beta release? [See releases](https://github.com/roots/sage/releases).**
 
 ## Features
 
 - Harness the power of [Laravel](https://laravel.com) and its available packages thanks to [Acorn](https://github.com/roots/acorn).
-- Clean, efficient theme templating utilizing [Laravel Blade](https://laravel.com/docs/latest/blade).
-- Easy [Browsersync](http://www.browsersync.io/) support alongside asset compilation, concatenating, and minification powered by [Laravel Mix](https://github.com/JeffreyWay/laravel-mix).
-- Out of the box support for [Bootstrap 5](https://getbootstrap.com/) and [jQuery](https://jquery.com).
-- A clean starting point for theme styles using [Sass](https://sass-lang.com/).
-
-See a working example at [roots-example-project.com](https://roots-example-project.com/).
+- Clean, efficient theme templating utilizing [Laravel Blade](https://laravel.com/docs/master/blade).
+- Lightning fast frontend development workflow powered by [Bud](https://budjs.netlify.app/).
+- Out of the box support for [TailwindCSS](https://tailwindcss.com/).
 
 ## Requirements
 
 Make sure all dependencies have been installed before moving on:
 
 - [WordPress](https://wordpress.org/) >= 5.4
-- [PHP](https://secure.php.net/manual/en/install.php) >= 7.2.5 (with [`php-mbstring`](https://secure.php.net/manual/en/book.mbstring.php) enabled)
+- [PHP](https://secure.php.net/manual/en/install.php) >= 7.3.0 (with [`php-mbstring`](https://secure.php.net/manual/en/book.mbstring.php) enabled)
 - [Composer](https://getcomposer.org/download/)
-- [Node.js](http://nodejs.org/) >= 12.0.0
+- [Node.js](http://nodejs.org/) >= 16
 - [Yarn](https://yarnpkg.com/en/docs/install)
 
 ## Theme installation
@@ -81,10 +78,10 @@ Install Sage using Composer from your WordPress themes directory (replace `your-
 $ composer create-project roots/sage your-theme-name
 ```
 
-To install the latest development version of Sage, add `dev-master` to the end of the command:
+To install the latest development version of Sage, add `dev-main` to the end of the command:
 
 ```sh
-$ composer create-project roots/sage your-theme-name dev-master
+$ composer create-project roots/sage your-theme-name dev-main
 ```
 
 ## Theme structure
@@ -92,12 +89,15 @@ $ composer create-project roots/sage your-theme-name dev-master
 ```sh
 themes/your-theme-name/   # → Root of your Sage based theme
 ├── app/                  # → Theme PHP
-│   ├── View/             # → View models
 │   ├── Providers/        # → Service providers
+│   ├── View/             # → View models
 │   ├── admin.php         # → Theme customizer setup
 │   ├── filters.php       # → Theme filters
 │   ├── helpers.php       # → Helper functions
 │   └── setup.php         # → Theme setup
+├── bootstrap/            # → Acorn bootstrap
+│   ├── cache/            # → Acorn cache location (never edit)
+│   └── app.php           # → Acorn application bootloader
 ├── config/               # → Config files
 │   ├── app.php           # → Application configuration
 │   ├── assets.php        # → Asset configuration
@@ -106,27 +106,26 @@ themes/your-theme-name/   # → Root of your Sage based theme
 │   └── view.php          # → View configuration
 ├── composer.json         # → Autoloading for `app/` files
 ├── composer.lock         # → Composer lock file (never edit)
-├── dist/                 # → Built theme assets (never edit)
+├── public/               # → Built theme assets (never edit)
 ├── functions.php         # → Theme bootloader
 ├── index.php             # → Theme template wrapper
 ├── node_modules/         # → Node.js packages (never edit)
 ├── package.json          # → Node.js dependencies and scripts
 ├── resources/            # → Theme assets and templates
-│   ├── assets/           # → Front-end assets
-│   │   ├── fonts/        # → Theme fonts
-│   │   ├── images/       # → Theme images
-│   │   ├── scripts/      # → Theme javascript
-│   │   └── styles/       # → Theme stylesheets
+│   ├── fonts/            # → Theme fonts
+│   ├── images/           # → Theme images
+│   ├── scripts/          # → Theme javascript
+│   ├── styles/           # → Theme stylesheets
 │   └── views/            # → Theme templates
 │       ├── components/   # → Component templates
-│       ├── form/         # → Form templates
+│       ├── forms/        # → Form templates
 │       ├── layouts/      # → Base templates
 │       └── partials/     # → Partial templates
 ├── screenshot.png        # → Theme screenshot for WP admin
 ├── storage/              # → Storage location for cache (never edit)
 ├── style.css             # → Theme meta information
 ├── vendor/               # → Composer packages (never edit)
-└── webpack.mix.js        # → Laravel Mix configuration
+└── bud.config.js         # → Bud configuration
 ```
 
 ## Theme setup
@@ -136,17 +135,16 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 ## Theme development
 
 - Run `yarn` from the theme directory to install dependencies
-- Update `webpack.mix.js` with your local dev URL
+- Update `bud.config.js` with your local dev URL
 
 ### Build commands
 
-- `yarn start` — Compile assets when file changes are made, start Browsersync session
-- `yarn build` — Compile and optimize the files in your assets directory
-- `yarn build:production` — Compile assets for production
+- `yarn dev` — Compile assets when file changes are made, start Browsersync session
+- `yarn build` — Compile assets for production
 
 ## Documentation
 
-- [Sage documentation](https://roots.io/sage/docs/)
+- [Sage documentation](https://docs.roots.io/sage/10.x/installation/)
 
 ## Contributing
 
@@ -156,7 +154,7 @@ Contributions are welcome from everyone. We have [contributing guidelines](https
 
 Help support our open-source development efforts by [becoming a sponsor](https://github.com/sponsors/roots).
 
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a> <a href="https://icons8.com/"><img src="https://cdn.roots.io/app/uploads/icons8.svg" alt="Icons8" width="200" height="150"></a> <a href="https://www.harnessup.com/"><img src="https://cdn.roots.io/app/uploads/harness-software.svg" alt="Harness Software" width="200" height="150"></a>
+<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="200" height="150"></a> <a href="https://icons8.com/"><img src="https://cdn.roots.io/app/uploads/icons8.svg" alt="Icons8" width="200" height="150"></a> <a href="https://www.harnessup.com/"><img src="https://cdn.roots.io/app/uploads/harness-software.svg" alt="Harness Software" width="200" height="150"></a> <a href="https://www.airfleet.co/careers?utm_source=roots&utm_content=sage-page"><img src="https://cdn.roots.io/app/uploads/airfleet.svg" alt="Airfleet" width="200" height="150"></a> <a href="https://generodigital.com/"><img src="https://cdn.roots.io/app/uploads/genero.svg" alt="Genero" width="200" height="150"></a> <a href="https://40q.agency/"><img src="https://cdn.roots.io/app/uploads/40q.svg" alt="40Q" width="200" height="150"></a> <a href="https://pantheon.io/"><img src="https://cdn.roots.io/app/uploads/pantheon.svg" alt="Pantheon" width="200" height="150"></a>
 
 ## Community
 
