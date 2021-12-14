@@ -1,0 +1,35 @@
+.navigation {
+  @apply relative bg-white;
+}
+
+.menu {
+  @apply flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10;
+}
+
+.menu-container-left {
+  @apply flex justify-start lg:w-0 lg:flex-1;
+}
+
+.menu-title {
+  @apply text-lg;
+}
+
+.menu-container-center {
+  @apply hidden md:flex space-x-10;
+}
+
+.menu-container-right {
+  @apply hidden md:flex items-center justify-end md:flex-1 lg:w-0;
+}
+
+.mobile-container-button {
+  @apply -mr-2 -my-2 md:hidden;
+}
+
+.mobile-container-button button {
+  @apply bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500;
+}
+
+.content {
+  min-height: calc(100vh - 255.8px);
+}

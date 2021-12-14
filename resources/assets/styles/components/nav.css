@@ -1,0 +1,31 @@
+.holder-nav {
+  @apply flex items-center justify-between p-4 pb-2;
+}
+
+.holder-nav .holder-title {
+  @apply flex flex-col items-start flex-1;
+}
+
+.site-title {
+  @apply text-lg;
+}
+
+.site-description {
+  @apply text-sm;
+}
+
+.main-menu {
+  @apply flex-1;
+}
+
+.menu-item {
+  @apply pr-2 border-b border-white;
+}
+
+.menu-item:hover {
+  @apply border-black;
+}
+
+.menu-item:last-of-type {
+  @apply pr-0;
+}

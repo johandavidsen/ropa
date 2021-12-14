@@ -1,0 +1,47 @@
+@import "tailwindcss/base";
+@import "base/fonts.css";
+@import "base/base.css";
+@import "layout/content.css";
+
+@import "tailwindcss/components";
+@import "components/nav.css";
+@import "components/widgets.css";
+@import "components/content-single.css";
+
+@import "tailwindcss/utilities";
+@import "vendor/font-awesome.css";
+
+@layer base {
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    h4 {
+        @apply text-lg;
+    }
+
+    h5 {
+        @apply text-sm;
+    }
+
+    h6 {
+        @apply text-base;
+    }
+
+    a {
+        @apply border-b border-white;
+    }
+
+    a:hover {
+        @apply border-black;
+    }
+}

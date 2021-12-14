@@ -1,0 +1,11 @@
+.post {
+    @apply mt-8 mb-5 w-full flex flex-row shadow-2xl;
+}
+
+.post .image {
+    @apply w-1/6 text-center bg-black text-white;
+}
+
+.post .teaser {
+    @apply flex flex-col w-5/6  pr-2 pl-8 py-4;
+}

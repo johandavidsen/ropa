@@ -1,0 +1,15 @@
+.widget_recent_comments {
+    @apply ml-0 mr-5 my-5 shadow-xl py-5 px-3;
+}
+
+.widget_recent_entries {
+    @apply ml-0 mr-5 my-5 shadow-xl py-5 px-3;
+}
+
+.widget_search {
+    @apply col-span-full;
+}
+
+.widget:nth-child(2) {
+    @apply mr-0 ml-5;
+}
