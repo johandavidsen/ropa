@@ -15,6 +15,7 @@ return [
     'paths' => [
         get_theme_file_path('/resources/views'),
         get_parent_theme_file_path('/resources/views'),
+        resource_path('views'),
     ],
 
     /*
@@ -28,7 +29,7 @@ return [
     |
     */
 
-    'compiled' => get_theme_file_path('/storage/framework/views'),
+    'compiled' => WP_CONTENT_DIR . '/cache/acorn/views',
 
     /*
     |--------------------------------------------------------------------------
@@ -75,6 +76,6 @@ return [
     */
 
     'directives' => [
-        'asset'  => Roots\Acorn\Assets\AssetDirective::class,
+        // 'foo'  => App\View\FooDirective::class,
     ],
 ];

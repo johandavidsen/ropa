@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => WP_DEBUG,
+    'debug' => WP_DEBUG && WP_DEBUG_DISPLAY,
 
     /*
     |--------------------------------------------------------------------------
@@ -55,32 +55,6 @@ return [
     */
 
     'timezone' => get_option('timezone_string', 'UTC'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Preflight Checks
-    |--------------------------------------------------------------------------
-    |
-    | This value allows service providers to execute preflight tasks after
-    | booting. These tasks include creating directories, databases, and files,
-    | or doing any other checks to ensure the service is functional.
-    |
-    */
-
-    'preflight' => env('WP_ENV', 'production') !== 'production',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Global Helpers
-    |--------------------------------------------------------------------------
-    |
-    | This value enables the usage of various Acorn helpers without the need
-    | to specify a namespace. This defaults to false as to not pollute the
-    | global namespace.
-    |
-    */
-
-    'globals' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -109,6 +83,21 @@ return [
     'fallback_locale' => 'en',
 
     /*
+     |--------------------------------------------------------------------------
+     | Encryption Key
+     |--------------------------------------------------------------------------
+     |
+     | This key is used by the Illuminate encrypter service and should be set
+     | to a random, 32 character string, otherwise these encrypted strings
+     | will not be safe. Please do this before deploying an application!
+     |
+     */
+
+    'key' => env('APP_KEY'),
+
+    'cipher' => 'AES-256-CBC',
+
+    /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
@@ -123,7 +112,10 @@ return [
         /**
          * Package Service Providers
          */
-        // ExamplePackage\Providers\ExamplePackageServiceProvider::class,
+        Illuminate\Bus\BusServiceProvider::class,
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
 
         /**
          * Application Service Providers
@@ -145,39 +137,39 @@ return [
     'aliases' => [
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
-        'Artisan' => Illuminate\Support\Facades\Artisan::class,
-        'Auth' => Illuminate\Support\Facades\Auth::class,
+        // 'Artisan' => Illuminate\Support\Facades\Artisan::class,
+        // 'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
-        'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
+        // 'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
-        'Cookie' => Illuminate\Support\Facades\Cookie::class,
-        'Crypt' => Illuminate\Support\Facades\Crypt::class,
-        'DB' => Illuminate\Support\Facades\DB::class,
-        'Eloquent' => Illuminate\Database\Eloquent\Model::class,
+        // 'Cookie' => Illuminate\Support\Facades\Cookie::class,
+        // 'Crypt' => Illuminate\Support\Facades\Crypt::class,
+        // 'DB' => Illuminate\Support\Facades\DB::class,
+        // 'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
-        'Gate' => Illuminate\Support\Facades\Gate::class,
-        'Hash' => Illuminate\Support\Facades\Hash::class,
-        'Http' => Illuminate\Support\Facades\Http::class,
-        'Lang' => Illuminate\Support\Facades\Lang::class,
+        // 'Gate' => Illuminate\Support\Facades\Gate::class,
+        // 'Hash' => Illuminate\Support\Facades\Hash::class,
+        // 'Http' => Illuminate\Support\Facades\Http::class,
+        // 'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
-        'Mail' => Illuminate\Support\Facades\Mail::class,
-        'Notification' => Illuminate\Support\Facades\Notification::class,
-        'Password' => Illuminate\Support\Facades\Password::class,
-        'Queue' => Illuminate\Support\Facades\Queue::class,
-        'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        'Redis' => Illuminate\Support\Facades\Redis::class,
-        'Request' => Illuminate\Support\Facades\Request::class,
-        'Response' => Illuminate\Support\Facades\Response::class,
-        'Route' => Illuminate\Support\Facades\Route::class,
-        'Schema' => Illuminate\Support\Facades\Schema::class,
-        'Session' => Illuminate\Support\Facades\Session::class,
+        // 'Mail' => Illuminate\Support\Facades\Mail::class,
+        // 'Notification' => Illuminate\Support\Facades\Notification::class,
+        // 'Password' => Illuminate\Support\Facades\Password::class,
+        // 'Queue' => Illuminate\Support\Facades\Queue::class,
+        // 'Redirect' => Illuminate\Support\Facades\Redirect::class,
+        // 'Redis' => Illuminate\Support\Facades\Redis::class,
+        // 'Request' => Illuminate\Support\Facades\Request::class,
+        // 'Response' => Illuminate\Support\Facades\Response::class,
+        // 'Route' => Illuminate\Support\Facades\Route::class,
+        // 'Schema' => Illuminate\Support\Facades\Schema::class,
+        // 'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'Str' => Illuminate\Support\Str::class,
-        'URL' => Illuminate\Support\Facades\URL::class,
-        'Validator' => Illuminate\Support\Facades\Validator::class,
+        // 'URL' => Illuminate\Support\Facades\URL::class,
+        // 'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
     ],
 ];
