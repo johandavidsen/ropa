@@ -35,8 +35,7 @@
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center">
                     @if( ! empty($siteIcon) )
-                        <img class="h-8 w-auto" src="{{ $siteIcon }}"
-                             alt="">
+                        <img class="h-8 w-auto" src="{{ $siteIcon }}" alt="">
                     @else
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
