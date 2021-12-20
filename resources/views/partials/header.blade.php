@@ -67,7 +67,7 @@
                     {!!
                         wp_nav_menu([
 	                        'theme_location' => 'primary_navigation',
-	                        'menu_class' => 'hidden sm:ml-6 sm:flex sm:space-x-8',
+	                        'menu_class' => 'navbar-menu',
 	                        'container' => null,
 	                        'echo' => false
 	                    ])

@@ -11,17 +11,18 @@
         {!! get_search_form(false) !!}
     @endif
 
+    <div class="container mx-auto">
     @while(have_posts()) @php(the_post())
-    <div class="container">
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-    </div>
     @endwhile
+    </div>
 
+    @if(is_paged())
     <div class="container py-5">
         {!! $pagination !!}
     </div>
+    @endif
 
-    @include('partials.sidebar')
 @endsection
 
 @section('sidebar')
