@@ -4,7 +4,7 @@
  * @param {Bud} config
  */
 
-module.exports = async (config) =>
+module.exports = async config =>
   config
     /**
      * Application entrypoints
@@ -12,9 +12,9 @@ module.exports = async (config) =>
      * Paths are relative to your resources directory
      */
     .entry({
-      app: ['scripts/app.js', 'styles/app.css'],
-      editor: ['scripts/editor.js', 'styles/editor.css'],
-      customizer: 'scripts/customizer.js',
+        app: ['scripts/app.js', 'styles/app.css'],
+        editor: ['scripts/editor.js', 'styles/editor.css'],
+        customizer: 'scripts/customizer.js',
     })
 
     /**
@@ -38,4 +38,4 @@ module.exports = async (config) =>
      *
      * This is your local dev server.
      */
-    .proxy('http://example.test');
+    .proxy('https://fjakkarin.dev.anu.gl.test');

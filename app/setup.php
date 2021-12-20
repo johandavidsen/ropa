@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme setup.
  */
@@ -35,12 +36,14 @@ add_action('after_setup_theme', function () {
      * Enable features from Soil when plugin is activated
      * @link https://roots.io/plugins/soil/
      */
+    /*
     add_theme_support('soil', [
         'clean-up',
         'nav-walker',
         'nice-search',
         'relative-urls'
     ]);
+    */
 
     /**
      * Disable full-site editing support.
@@ -54,7 +57,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'ropa')
+        'primary_navigation' => __('Primary Navigation', 'ropa'),
+        'footer_navigation' => __('Footer Navigation', 'ropa'),
     ]);
 
     /**

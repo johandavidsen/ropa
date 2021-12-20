@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
@@ -24,6 +23,8 @@ class Posts extends Composer
     public function override()
     {
         return [
+            'title' => get_the_title(get_option('page_for_posts', true)),
+            'content' => get_post_field('post_content', get_option('page_for_posts')),
             'pagination' => $this->createPagination(),
         ];
     }

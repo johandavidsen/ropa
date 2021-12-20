@@ -2,7 +2,7 @@
 
 namespace App\View\Composers;
 
-use Illuminate\View\View;
+use Carbon\Carbon;
 use Roots\Acorn\View\Composer;
 
 class App extends Composer
@@ -23,14 +23,15 @@ class App extends Composer
      */
     public function with()
     {
+
         return [
-            'siteIcon' => $this->siteIcon(),
+            'siteIcon'      => $this->siteIcon(),
             'siteName'      => $this->siteName(),
             'siteTagline'   => $this->siteTagline(),
             'siteUrl'       => $this->siteUrl(),
             'showTitle'     => $this->showTitle(),
-            'showLogo'      => $this->showLogo()
-
+            'showLogo'      => $this->showLogo(),
+            'year'          => Carbon::now()->year
         ];
     }
 
@@ -47,8 +48,9 @@ class App extends Composer
     /**
      * @return string
      */
-    public function siteIcon(): string {
-	    return get_site_icon_url();
+    public function siteIcon(): string
+    {
+        return get_site_icon_url();
     }
 
     /**

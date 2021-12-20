@@ -17,7 +17,7 @@ class PostWidget extends Component
     {
 
         if (function_exists('register_block_type')) {
-            register_block_type('ropa/posts_widget', array(
+            register_block_type('ropa\posts_widget', array(
                 'render_callback' => [ $this, 'render' ],
                 'attributes' => array(
                     'images' => array(
