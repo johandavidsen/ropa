@@ -4,7 +4,7 @@
     </div>
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
-            <a href="#" class="block mt-2">
+            <a href="{!! get_permalink() !!}" class="block mt-2">
                 <h2 class="text-xl font-semibold text-gray-900">
                     {!! $title !!}
                 </h2>
