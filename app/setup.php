@@ -6,6 +6,8 @@
 
 namespace App;
 
+use App\Widgets\SocialLink;
+
 use function Roots\bundle;
 
 /**
@@ -50,7 +52,7 @@ add_action('after_setup_theme', function () {
      *
      * @link https://wptavern.com/gutenberg-10-5-embeds-pdfs-adds-verse-block-color-options-and-introduces-new-patterns
      */
-    remove_theme_support('block-templates');
+    //remove_theme_support('block-templates');
 
     /**
      * Register navigation menus
@@ -163,6 +165,12 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/advanced-topics/customizer-api/#theme-support-in-sidebars
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    /**
+     * Remove support for new widgets block editor
+     * @link https://wordpress.org/support/topic/error-in-widgets-with-new-wordpress-version-5-8-wp_enqueue_script-and-wp/
+     */
+    remove_theme_support('widgets-block-editor');
 }, 20);
 
 /**
@@ -188,3 +196,5 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer'
     ] + $config);
 });
+
+new SocialLink();
