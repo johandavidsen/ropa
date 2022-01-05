@@ -1,18 +1,3 @@
-/*
-@import "../../node_modules/tailwindcss/base.css";
-@import "base/fonts.css";
-@import "base/base.css";
-@import "layout/content.css";
-
-@import "../../node_modules/tailwindcss/components.css";
-@import "components/nav.css";
-@import "components/widgets.css";
-@import "components/content-single.css";
-
-@import "../../node_modules/tailwindcss/utilities.css";
-@import "vendor/font-awesome.css";
-*/
-
 @import 'tailwindcss/base';
 
 @import 'tailwindcss/components';

@@ -1,6 +1,10 @@
 <article @php(post_class('flex flex-col rounded-lg shadow-lg overflow-hidden'))>
-    <div class="flex-shrink-0">
-        <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
+    <div class="flex-shrink-0 rounded-t-lg">
+        @if(1 < count($featured_image))
+            <img class="h-48 w-full object-cover rounded-t-lg" src="{{ $featured_image[0] }}" >
+        @else
+            <img class="h-48 w-full" src="{{ $featured_image[0] }}" >
+        @endif
     </div>
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">

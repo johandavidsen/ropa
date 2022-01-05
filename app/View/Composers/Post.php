@@ -4,6 +4,8 @@ namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
 
+use function Roots\bundle;
+
 class Post extends Composer
 {
     /**
@@ -26,6 +28,7 @@ class Post extends Composer
     {
         return [
             'title' => $this->title(),
+            'featured_image' => $this->featuredImage()
         ];
     }
 
@@ -65,5 +68,24 @@ class Post extends Composer
         }
 
         return get_the_title();
+    }
+
+    /**
+     * @return array
+     */
+    public function featuredImage(): array
+    {
+        $images = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()));
+        // Featured Image
+        if ($images && 0 < count($images)) {
+            return $images;
+        }
+
+        // First image in post
+
+        // Default image
+        return [
+            asset('assets/images/code.svg')
+        ];
     }
 }
